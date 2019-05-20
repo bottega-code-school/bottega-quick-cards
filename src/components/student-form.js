@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { A } from "hookrouter"
+import { A } from "hookrouter";
+import DropzoneComponent from "react-dropzone-component";
+import request from "superagent";
+
+import "../../node_modules/react-dropzone-component/styles/filepicker.css";
+import "../../node_modules/dropzone/dist/min/dropzone.min.css";
+
+const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
+const CLOUDINARY_UPLOAD_URL = process.env.CLOUDINARY_UPLOAD_URL;
 
 const INITIAL_STATE = {
   name: "",
@@ -29,14 +37,51 @@ const INITIAL_STATE = {
   functionalProgramming: "",
   softwareEngineering: "",
   apis: ""
-}
+};
 
 class StudentForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = INITIAL_STATE
+    this.state = INITIAL_STATE;
+
+    this.imageRef = React.createRef();
   }
+
+  componentConfig = () => {
+    return {
+      iconFiletypes: [".jpg", ".png"],
+      showFiletypeIcon: true,
+      postUrl: "https://httpbin.org/post"
+    };
+  };
+
+  djsConfig = () => {
+    return {
+      addRemoveLinks: true,
+      maxFiles: 1
+    };
+  };
+
+  handleImageDrop = () => {
+    return {
+      addedfile: file => {
+        let upload = request
+          .post("https://api.cloudinary.com/v1_1/dkwmzcfls/image/upload")
+          .field("upload_preset", "student-images")
+          .field("file", file);
+
+        upload.end((err, response) => {
+          if (err) {
+            console.log("error uploading to Cloudinary", file);
+          }
+          if (response.body.secure_url !== "") {
+            this.setState({ image: response.body.secure_url });
+          }
+        });
+      }
+    };
+  };
 
   handleChange = event => {
     this.setState({
@@ -50,22 +95,18 @@ class StudentForm extends Component {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        Accept: "application/json"
       },
       body: JSON.stringify(this.state)
     })
       .then(result => result.json())
-      .then(
-        this.setState(INITIAL_STATE)
-      )
+      .then(this.setState(INITIAL_STATE))
+      .then(this.imageRef.current.dropzone.removeAllFiles())
       .catch(error => console.log("form submit", error));
   };
 
-  editStudent = () => {
-
-  }
-
   render() {
+    console.log(this.state.image);
     return (
       <div className="student-form-wrapper">
         <A href="/">Home</A>
@@ -89,13 +130,14 @@ class StudentForm extends Component {
             />
           </div>
 
-          <input
-            type="text"
-            name="image"
-            placeholder="Image URL"
-            value={this.state.image}
-            onChange={this.handleChange}
-          />
+          <DropzoneComponent
+            ref={this.imageRef}
+            config={this.componentConfig()}
+            djsConfig={this.djsConfig()}
+            eventHandlers={this.handleImageDrop()}
+          >
+            <div>Student Image</div>
+          </DropzoneComponent>
 
           <textarea
             rows="12"
@@ -187,13 +229,11 @@ class StudentForm extends Component {
               value={this.state.uiUx}
               onChange={this.handleChange}
             />
-
           </div>
 
           <h1>Soft Skills</h1>
 
           <div className="skill-level-inputs">
-
             <input
               type="text"
               name="controlStructures"
@@ -273,7 +313,6 @@ class StudentForm extends Component {
               value={this.state.apis}
               onChange={this.handleChange}
             />
-
           </div>
 
           <button type="submit">Submit</button>

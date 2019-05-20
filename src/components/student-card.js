@@ -34,11 +34,11 @@ const StudentCard = props => {
         <span className="right">Proactive</span>
       </div>
       <div className="skills">{renderSkills()}</div>
-      {/* <div>
+      <div>
         <button onClick={() => props.handleDeleteStudent(props.student.id)}>
           DELETE Student
         </button>
-      </div> */}
+      </div>
     </div>
   );
 };
