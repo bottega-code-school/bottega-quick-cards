@@ -1,0 +1,10 @@
+@import "skill";
+@import "student-card";
+@import "student-form";
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}

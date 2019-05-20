@@ -1,0 +1,38 @@
+.skill-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 0.5px;
+  background-color: #e1e1e1;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.skill {
+  padding: 0px;
+}
+
+.skill-bar-wrapper {
+  position: relative;
+}
+
+.skill-bar {
+  height: 20px;
+  background-color: #00cd78;
+  position: absolute;
+  z-index: -1;
+  border-radius: 20px;
+  text-align: right;
+  overflow: hidden;
+}
+
+.skill-levels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 6px;
+  z-index: 0;
+  padding-bottom: 2px;
+}
