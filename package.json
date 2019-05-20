@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-router",
+  "name": "bottega-quick-cards",
   "version": "1.0.0",
-  "description": "Basic skeleton codebase for React/Redux/Router applications.",
+  "description": "see students' progress at a glance",
   "scripts": {
     "preinstall": "npm set audit false",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
@@ -11,8 +11,7 @@
     "prod": "NODE_ENV=production node server.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git@github.com:bottega-code-school/js-builder.git"
+    "type": "git"
   },
   "keywords": [
     "es6",
@@ -25,12 +24,10 @@
     "sass",
     "css module"
   ],
-  "author": "Your Name Here",
+  "author": "Neil Myers",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bottega-code-school/js-builder/issues"
-  },
-  "homepage": "https://github.com/bottega-code-school/js-builder",
+  "bugs": {},
+  "homepage": "https://bottega-quick-cards.herokuapp.com",
   "dependencies": {
     "ajv": "^5.5.2",
     "autoprefixer": "^9.1.0",
