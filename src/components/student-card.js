@@ -41,7 +41,7 @@ const StudentCard = props => {
           <button onClick={() => props.handleDeleteStudent(props.student.id)}>
             DELETE Student
           </button>
-          <button onClick={() => props.handleDeleteStudent(props.student.id)}>
+          <button onClick={() => props.handleEditStudent(props.student.id)}>
             EDIT Student
           </button>
         </div>

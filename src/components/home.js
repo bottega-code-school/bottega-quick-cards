@@ -67,6 +67,7 @@ const Home = () => {
           student={student}
           skillArray={skillArray}
           handleDeleteStudent={handleDeleteStudent}
+          handleEditStudent={handleEditStudent}
         />
       );
     });
@@ -82,6 +83,10 @@ const Home = () => {
         })
       )
     );
+  };
+
+  const handleEditStudent = id => {
+    console.log("handle edit clicked");
   };
 
   const handleLogout = () => {

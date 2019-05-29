@@ -10,7 +10,7 @@
     background-color: $main-gray;
     cursor: pointer;
 
-    &:hover {
+    &:active {
       background-color: black;
     }
   }
@@ -71,7 +71,7 @@
       margin-right: 10px;
       cursor: pointer;
 
-      &:hover {
+      &:active {
         background-color: black;
       }
     }
