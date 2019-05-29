@@ -1,22 +1,29 @@
-import React from 'react';
-import { useRoutes } from "hookrouter"
+import React from "react";
+import { useRoutes, useRedirect } from "hookrouter";
+import Cookie from "js-cookie";
 
-import Home from './home';
-import StudentForm from './student-form';
+import Home from "./home";
+import StudentForm from "./student-form";
+import Login from "./login";
 
 import "../style/app.scss";
 
 const routes = {
   "/": () => <Home />,
-  "/student-form": () => <StudentForm />
-}
+  "/student-form": () => <StudentForm />,
+  "/login": () => <Login />
+};
 
 const App = () => {
   return (
-    <div>
+    <div className="app">
+      {useRedirect(
+        "/student-form",
+        Cookie.get("username") ? "/student-form" : "/"
+      )}
       {useRoutes(routes)}
     </div>
   );
-}
+};
 
 export default App;

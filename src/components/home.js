@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Loader from "react-loader-spinner"
+import Cookie from "js-cookie";
+import Loader from "react-loader-spinner";
 
 import StudentCard from "./student-card";
 
-// import { studentInfo } from "../mockData"
-
 const Home = () => {
   const [studentInfo, setStudentInfo] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(Cookie.get("username"));
 
   useEffect(() => {
     const get = async () => {
@@ -16,7 +16,7 @@ const Home = () => {
         "https://quick-cards-api.herokuapp.com/students"
       );
       setStudentInfo(result.data);
-      setLoading(false)
+      setLoading(false);
     };
     get();
   }, []);
@@ -36,17 +36,29 @@ const Home = () => {
         { skillName: "UML", skillLevel: student.uml_skill },
         { skillName: "UI/UX", skillLevel: student.ui_ux_skill },
 
-        { skillName: "Control Structures", skillLevel: student.control_structures },
+        {
+          skillName: "Control Structures",
+          skillLevel: student.control_structures
+        },
         { skillName: "Algorithms", skillLevel: student.algorithms },
         { skillName: "Quality", skillLevel: student.quality },
-        { skillName: "Project Management", skillLevel: student.project_management },
+        {
+          skillName: "Project Management",
+          skillLevel: student.project_management
+        },
         { skillName: "Problem Solving", skillLevel: student.problem_solving },
         { skillName: "Agile", skillLevel: student.agile },
         { skillName: "OOP", skillLevel: student.oop },
-        { skillName: "Functional Programming", skillLevel: student.functional_programming },
-        { skillName: "Software Engineering", skillLevel: student.software_engineering },
-        { skillName: "APIs", skillLevel: student.apis },
-      ]
+        {
+          skillName: "Functional Programming",
+          skillLevel: student.functional_programming
+        },
+        {
+          skillName: "Software Engineering",
+          skillLevel: student.software_engineering
+        },
+        { skillName: "APIs", skillLevel: student.apis }
+      ];
 
       return (
         <StudentCard
@@ -62,20 +74,25 @@ const Home = () => {
   const handleDeleteStudent = id => {
     fetch(`https://quick-cards-api.herokuapp.com/student/${id}`, {
       method: "DELETE"
-    })
-      .then(setStudentInfo(studentInfo.filter(item => {
-        return item.id !== id
-      })))
-  }
+    }).then(
+      setStudentInfo(
+        studentInfo.filter(item => {
+          return item.id !== id;
+        })
+      )
+    );
+  };
+
+  const handleLogout = () => {
+    Cookie.remove("username");
+    Cookie.remove("password");
+    setLoggedIn(false);
+  };
 
   return (
-    <div className="app">
-      {loading ?
-        <Loader
-          type="Plane"
-          color="#00cd78"
-        />
-        : renderStudents()}
+    <div className="home">
+      {loggedIn ? <p onClick={handleLogout}>Logout</p> : null}
+      {loading ? <Loader type="Plane" color="#00cd78" /> : renderStudents()}
     </div>
   );
 };
