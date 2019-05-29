@@ -1,4 +1,5 @@
 import React from "react";
+import Cookie from "js-cookie";
 import Skill from "./skill";
 
 const StudentCard = props => {
@@ -34,11 +35,16 @@ const StudentCard = props => {
         <span className="right">Proactive</span>
       </div>
       <div className="skills">{renderSkills()}</div>
-      <div>
-        <button onClick={() => props.handleDeleteStudent(props.student.id)}>
-          DELETE Student
-        </button>
-      </div>
+      {Cookie.get("username") ? (
+        <div>
+          <button onClick={() => props.handleDeleteStudent(props.student.id)}>
+            DELETE Student
+          </button>
+          <button onClick={() => props.handleDeleteStudent(props.student.id)}>
+            EDIT Student
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };
