@@ -1,3 +1,21 @@
+$bottega-green: #00cb78;
+$main-gray: #444;
+$secondary-gray: #e1e1e1;
+
+@mixin default-form {
+  display: grid;
+  border: 1px solid $secondary-gray;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 50px;
+  width: 60%;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 7px 7px 14px 2px rgba(225, 225, 225, 1);
+  text-align: center;
+}
+
 @import "skill";
 @import "student-card";
 @import "student-form";
@@ -8,4 +26,50 @@
   flex-direction: column;
   align-items: center;
   font-family: "Roboto Condensed", sans-serif;
+}
+
+a {
+  color: $main-gray;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 25px;
+
+  &:hover {
+    color: $bottega-green;
+  }
+}
+
+button {
+  background-color: $bottega-green;
+  height: 30px;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: #01bc70;
+  }
+}
+
+input {
+  height: 20px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid $main-gray;
+  border-radius: 30px;
+  outline: none;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+
+  &:focus {
+    border: 1px solid $bottega-green;
+  }
 }

@@ -1,74 +1,96 @@
+.admin-nav-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px;
+  width: 200px;
+
+  button {
+    width: 70px;
+    background-color: $main-gray;
+    cursor: pointer;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+}
+
 .student-card-wrapper {
   display: grid;
-  border: 1px solid #e1e1e1;
+  border: 1px solid $secondary-gray;
   grid-template-columns: 300px 1fr;
-  grid-template-rows: 1fr auto;
   grid-row-gap: 20px;
-  grid-column-gap: 50px;
+  grid-column-gap: 40px;
   width: 70%;
-  height: auto;
   padding: 25px;
   margin-bottom: 20px;
   border-radius: 5px;
-  box-shadow: 7px 7px 14px 2px rgba(225,225,225,1);
+  box-shadow: 7px 7px 14px 2px rgba(225, 225, 225, 1);
+
+  img {
+    justify-self: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .scale-title {
+    margin-bottom: -20px;
+    margin-left: 3px;
+  }
+
+  .skill-legend {
+    grid-column: 1/-1;
+    background-color: $bottega-green;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    padding: 3px;
+
+    .right,
+    .middle {
+      width: 40%;
+    }
+  }
+
+  .skills {
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 15px;
+    grid-column-gap: 30px;
+  }
+
+  .admin-control-buttons {
+    display: flex;
+    width: 260px;
+
+    button {
+      background-color: $main-gray;
+      margin-right: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
 }
 
-a {
-  font-size: 25px;
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  color: #00cd78;
-}
-
-.scale-title {
-  margin-bottom: -20px;
-  margin-left: 3px;
-}
-
-.skill-legend {
-  grid-column: 1/-1;
-  background-color: #00cd78;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  text-align: right;
-  padding: 3px;
-}
-
-.right, .middle {
-  width: 40%;
-}
-
-.skills {
-  display: grid;
-  grid-column: 1/-1;
-  grid-template-columns: 1fr 1fr;
-  grid-row-gap: 15px;
-  grid-column-gap: 30px;
-}
-
-img {
-  justify-self: center;
-  width: 275px;
-  height: auto;
-}
-
-@media(max-width: 800px) {
+@media (max-width: 640px) {
   .student-card-wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
     width: 80%;
-  }
 
-  .skills {
-    grid-template-columns: 1fr;
-  }
+    .skills {
+      grid-template-columns: 1fr;
+    }
 
-  a {
-    display: flex;
-    justify-content: center;
+    a {
+      display: flex;
+      justify-content: center;
+    }
   }
 }

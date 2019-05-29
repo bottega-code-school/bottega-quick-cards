@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookie from "js-cookie";
+import { A } from "hookrouter";
 import Loader from "react-loader-spinner";
 
 import StudentCard from "./student-card";
@@ -91,8 +92,15 @@ const Home = () => {
 
   return (
     <div className="home">
-      {loggedIn ? <p onClick={handleLogout}>Logout</p> : null}
-      {loading ? <Loader type="Plane" color="#00cd78" /> : renderStudents()}
+      {loggedIn ? (
+        <div className="admin-nav-buttons">
+          <A href="/student-form">Form</A>
+          <button onClick={handleLogout} className="logout-button">
+            Logout
+          </button>
+        </div>
+      ) : null}
+      {loading ? <Loader type="Plane" color="#00cb78" /> : renderStudents()}
     </div>
   );
 };

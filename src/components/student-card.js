@@ -35,8 +35,9 @@ const StudentCard = props => {
         <span className="right">Proactive</span>
       </div>
       <div className="skills">{renderSkills()}</div>
+
       {Cookie.get("username") ? (
-        <div>
+        <div className="admin-control-buttons">
           <button onClick={() => props.handleDeleteStudent(props.student.id)}>
             DELETE Student
           </button>

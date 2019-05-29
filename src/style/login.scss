@@ -1,7 +1,16 @@
 .login {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  width: 70%;
-  height: 70%;
+  height: 80vh;
+
+  input {
+    width: 98%;
+  }
+
+  form {
+    @include default-form;
+    font-family: "Roboto Condensed", sans-serif;
+    color: $bottega-green;
+  }
 }
