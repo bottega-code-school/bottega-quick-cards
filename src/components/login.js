@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (username === "admin" && password === "a") {
+    if (username === "admin" && password === "workingman") {
       Cookie.set("username", username);
       Cookie.set("password", password);
       setErrorText("");
