@@ -148,7 +148,7 @@ class StudentForm extends Component {
             onChange={this.handleChange}
           />
 
-          <h1>Skill Levels</h1>
+          <h1>Skill Levels (1-5)</h1>
 
           <div className="skill-level-inputs">
             <input
@@ -231,7 +231,7 @@ class StudentForm extends Component {
             />
           </div>
 
-          <h1>Soft Skills</h1>
+          <h1>Soft Skills (1-5)</h1>
 
           <div className="skill-level-inputs">
             <input
