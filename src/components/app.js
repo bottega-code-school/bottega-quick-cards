@@ -11,7 +11,8 @@ import "../style/app.scss";
 const routes = {
   "/": () => <Home />,
   "/student-form": () => <StudentForm />,
-  "/login": () => <Login />
+  "/login": () => <Login />,
+  "/student-form/:id": ({ id }) => <StudentForm id={id} editMode={true} />
 };
 
 const App = () => {

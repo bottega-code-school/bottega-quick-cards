@@ -1,5 +1,7 @@
 import React from "react";
 import Cookie from "js-cookie";
+import { navigate } from "hookrouter";
+
 import Skill from "./skill";
 
 const StudentCard = props => {
@@ -13,6 +15,10 @@ const StudentCard = props => {
         />
       );
     });
+  };
+
+  const handleEditStudent = id => {
+    navigate(`/student-form/${id}`);
   };
 
   return (
@@ -39,10 +45,10 @@ const StudentCard = props => {
       {Cookie.get("username") ? (
         <div className="admin-control-buttons">
           <button onClick={() => props.handleDeleteStudent(props.student.id)}>
-            DELETE Student
+            DELETE
           </button>
-          <button onClick={() => props.handleEditStudent(props.student.id)}>
-            EDIT Student
+          <button onClick={() => handleEditStudent(props.student.id)}>
+            EDIT
           </button>
         </div>
       ) : null}

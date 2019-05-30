@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookie from "js-cookie";
-import { A } from "hookrouter";
+import { A, navigate } from "hookrouter";
 import Loader from "react-loader-spinner";
 
 import StudentCard from "./student-card";
@@ -67,7 +67,6 @@ const Home = () => {
           student={student}
           skillArray={skillArray}
           handleDeleteStudent={handleDeleteStudent}
-          handleEditStudent={handleEditStudent}
         />
       );
     });
@@ -83,10 +82,6 @@ const Home = () => {
         })
       )
     );
-  };
-
-  const handleEditStudent = id => {
-    console.log("handle edit clicked");
   };
 
   const handleLogout = () => {

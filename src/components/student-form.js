@@ -1,41 +1,38 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { A } from "hookrouter";
+import { A, navigate } from "hookrouter";
 import DropzoneComponent from "react-dropzone-component";
 import request from "superagent";
 
 import "../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../node_modules/dropzone/dist/min/dropzone.min.css";
 
-const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
-const CLOUDINARY_UPLOAD_URL = process.env.CLOUDINARY_UPLOAD_URL;
-
 const INITIAL_STATE = {
   name: "",
   linkedin: "",
   image: "",
   summary: "",
-  python: "",
-  react: "",
-  github: "",
-  json: "",
-  cssScss: "",
-  dataType: "",
-  sql: "",
-  javaScript: "",
-  html: "",
-  uml: "",
-  uiUx: "",
+  python_skill: "",
+  react_skill: "",
+  github_skill: "",
+  json_skill: "",
+  css_scss_skill: "",
+  data_type_skill: "",
+  sql_skill: "",
+  javascript_skill: "",
+  html_skill: "",
+  uml_skill: "",
+  ui_ux_skill: "",
 
-  controlStructures: "",
+  control_structures: "",
   algorithms: "",
   quality: "",
-  projectManagement: "",
-  problemSolving: "",
+  project_management: "",
+  problem_solving: "",
   agile: "",
   oop: "",
-  functionalProgramming: "",
-  softwareEngineering: "",
+  functional_programming: "",
+  software_engineering: "",
   apis: ""
 };
 
@@ -46,6 +43,14 @@ class StudentForm extends Component {
     this.state = INITIAL_STATE;
 
     this.imageRef = React.createRef();
+  }
+
+  componentDidMount() {
+    if (this.props.id && this.props.editMode) {
+      fetch(`https://quick-cards-api.herokuapp.com/student/${this.props.id}`)
+        .then(response => response.json())
+        .then(data => this.setState(data));
+    }
   }
 
   componentConfig = () => {
@@ -91,22 +96,35 @@ class StudentForm extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    fetch("https://quick-cards-api.herokuapp.com/add-student", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-      .then(result => result.json())
-      .then(this.setState(INITIAL_STATE))
-      .then(this.imageRef.current.dropzone.removeAllFiles())
-      .catch(error => console.log("form submit", error));
+    if (this.props.editMode) {
+      fetch(`https://quick-cards-api.herokuapp.com/student/${this.props.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(this.state)
+      })
+        .then(this.imageRef.current.dropzone.removeAllFiles())
+        .then(navigate("/"))
+        .catch(error => console.log("put error", error));
+    } else {
+      fetch("https://quick-cards-api.herokuapp.com/add-student", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(this.state)
+      })
+        .then(result => result.json())
+        .then(this.setState(INITIAL_STATE))
+        .then(this.imageRef.current.dropzone.removeAllFiles())
+        .catch(error => console.log("form submit", error));
+    }
   };
 
   render() {
-    console.log(this.state.image);
     return (
       <div className="student-form-wrapper">
         <A href="/">Home</A>
@@ -153,80 +171,80 @@ class StudentForm extends Component {
           <div className="skill-level-inputs">
             <input
               type="text"
-              name="python"
+              name="python_skill"
               placeholder="Python"
-              value={this.state.python}
+              value={this.state.python_skill}
               onChange={this.handleChange}
             />
 
             <input
               type="text"
-              name="react"
+              name="react_skill"
               placeholder="React"
-              value={this.state.react}
+              value={this.state.react_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="github"
+              name="github_skill"
               placeholder="Github"
-              value={this.state.github}
+              value={this.state.github_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="json"
+              name="json_skill"
               placeholder="JSON"
-              value={this.state.json}
+              value={this.state.json_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="cssScss"
+              name="css_scss_skill"
               placeholder="CSS / Scss"
-              value={this.state.cssScss}
+              value={this.state.css_scss_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="dataType"
+              name="data_type_skill"
               placeholder="Data Types"
-              value={this.state.dataType}
+              value={this.state.data_type_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="sql"
+              name="sql_skill"
               placeholder="SQL"
-              value={this.state.sql}
+              value={this.state.sql_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="javaScript"
+              name="javascript_skill"
               placeholder="JavaScript"
-              value={this.state.javaScript}
+              value={this.state.javascript_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="html"
+              name="html_skill"
               placeholder="HTML"
-              value={this.state.html}
+              value={this.state.html_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="uml"
+              name="uml_skill"
               placeholder="UML"
-              value={this.state.uml}
+              value={this.state.uml_skill}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="uiUx"
+              name="ui_ux_skill"
               placeholder="UI / UX"
-              value={this.state.uiUx}
+              value={this.state.ui_ux_skill}
               onChange={this.handleChange}
             />
           </div>
@@ -236,9 +254,9 @@ class StudentForm extends Component {
           <div className="skill-level-inputs">
             <input
               type="text"
-              name="controlStructures"
+              name="control_structures"
               placeholder="Control Structures"
-              value={this.state.controlStructures}
+              value={this.state.control_structures}
               onChange={this.handleChange}
             />
 
@@ -260,17 +278,17 @@ class StudentForm extends Component {
 
             <input
               type="text"
-              name="projectManagement"
+              name="project_management"
               placeholder="Project Management"
-              value={this.state.projectManagement}
+              value={this.state.project_management}
               onChange={this.handleChange}
             />
 
             <input
               type="text"
-              name="problemSolving"
+              name="problem_solving"
               placeholder="Problem Solving"
-              value={this.state.problemSolving}
+              value={this.state.problem_solving}
               onChange={this.handleChange}
             />
 
@@ -292,17 +310,17 @@ class StudentForm extends Component {
 
             <input
               type="text"
-              name="functionalProgramming"
+              name="functional_programming"
               placeholder="Functional Programming"
-              value={this.state.functionalProgramming}
+              value={this.state.functional_programming}
               onChange={this.handleChange}
             />
 
             <input
               type="text"
-              name="softwareEngineering"
+              name="software_engineering"
               placeholder="Software Engineering"
-              value={this.state.softwareEngineering}
+              value={this.state.software_engineering}
               onChange={this.handleChange}
             />
 
