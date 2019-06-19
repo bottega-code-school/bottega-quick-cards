@@ -4,24 +4,19 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  justify-content: center;
-  background-color: $secondary-gray;
+  background-image: linear-gradient(to right, #00e286, #00aa64);
   z-index: 0;
   border-radius: 20px;
+  position: relative;
+  border-right: 1px solid $main-gray;
+  border-left: 1px solid $main-gray;
 
-  .skill-bar-wrapper {
-    position: relative;
-
-    .skill-bar {
-      height: 100%;
-      background-color: $bottega-green;
-      position: absolute;
-      z-index: -1;
-      border-radius: 20px;
-    }
-
-    .skill {
-      padding: 0px;
-    }
+  .skill-bar {
+    height: 100%;
+    background-color: $secondary-gray;
+    position: absolute;
+    z-index: -1;
+    border-radius: 0 20px 20px 0;
+    align-self: flex-end;
   }
 }

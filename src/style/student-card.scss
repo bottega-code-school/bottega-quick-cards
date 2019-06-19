@@ -41,12 +41,14 @@
 
   .skill-legend {
     grid-column: 1/-1;
-    background-color: $bottega-green;
+    background-image: linear-gradient(to right, #00e286, #00aa64);
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
     text-align: right;
     padding: 3px;
+    border-right: 1px solid $main-gray;
+    border-left: 1px solid $main-gray;
 
     .right,
     .middle {
