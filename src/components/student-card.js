@@ -23,7 +23,9 @@ const StudentCard = props => {
 
   return (
     <div className="student-card-wrapper">
-      <img src={props.student.image} alt="student" />
+      <A href={`/student/${props.student.id}`}>
+        <img src={props.student.image} alt="student" />
+      </A>
       <div>
         <a
           href={props.student.linkedin}
@@ -50,7 +52,6 @@ const StudentCard = props => {
           <button onClick={() => handleEditStudent(props.student.id)}>
             EDIT
           </button>
-          <A href={`/student/${props.student.id}`}>></A>
         </div>
       ) : null}
     </div>
