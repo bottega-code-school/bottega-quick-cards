@@ -1,6 +1,6 @@
 import React from "react";
 import Cookie from "js-cookie";
-import { navigate } from "hookrouter";
+import { navigate, A } from "hookrouter";
 
 import Skill from "./skill";
 
@@ -50,6 +50,7 @@ const StudentCard = props => {
           <button onClick={() => handleEditStudent(props.student.id)}>
             EDIT
           </button>
+          <A href={`/student/${props.student.id}`}>></A>
         </div>
       ) : null}
     </div>
