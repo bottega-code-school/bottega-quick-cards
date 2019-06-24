@@ -24,7 +24,7 @@ const QuestionModal = props => {
 
 const customStyles = {
   content: {
-    top: "50%",
+    top: "40%",
     left: "50%",
     right: "auto",
     marginRight: "-50%",
