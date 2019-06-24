@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Cookie from "js-cookie";
 import { navigate, A } from "hookrouter";
 
 import Skill from "./skill";
+import QuestionModal from "./question-modal";
 
 const StudentCard = props => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const renderSkills = () => {
     return props.skillArray.map(skill => {
       return (
@@ -34,7 +37,16 @@ const StudentCard = props => {
         </a>
         <p>{props.student.summary}</p>
       </div>
-      <span className="scale-title">Production Ready Scale</span>
+      <div className="scale-title">
+        <span>Production Ready Scale</span>
+        <span className="question-mark" onClick={() => setModalIsOpen(true)}>
+          ?
+        </span>
+        <QuestionModal
+          modalIsOpen={modalIsOpen}
+          handleClose={() => setModalIsOpen(false)}
+        />
+      </div>
       <div className="skill-legend">
         <span className="left">Supervised</span>
         <span className="middle">Outcome Based</span>

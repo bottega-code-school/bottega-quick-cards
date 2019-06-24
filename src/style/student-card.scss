@@ -37,11 +37,38 @@
   .scale-title {
     margin-bottom: -20px;
     margin-left: 3px;
+    display: flex;
+
+    .question-mark {
+      border: 1px solid $main-gray;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 5px;
+      background-color: $secondary-gray;
+
+      &:hover {
+        border: 1px solid $bottega-green;
+        color: $bottega-green;
+        cursor: pointer;
+
+        &:active {
+          color: white;
+        }
+      }
+    }
   }
 
   .skill-legend {
     grid-column: 1/-1;
-    background-image: linear-gradient(to right, #00e286, #00aa64);
+    background-image: linear-gradient(
+      to right,
+      $light-gradient,
+      $dark-gradient
+    );
     border-radius: 20px;
     display: flex;
     justify-content: space-between;

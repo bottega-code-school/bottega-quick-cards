@@ -2,6 +2,9 @@ $bottega-green: #00cb78;
 $main-gray: #444;
 $secondary-gray: #e1e1e1;
 
+$light-gradient: #00e286;
+$dark-gradient: #005e37;
+
 @mixin default-form {
   display: grid;
   border: 1px solid $secondary-gray;
@@ -71,5 +74,13 @@ input {
 
   &:focus {
     border: 1px solid $bottega-green;
+  }
+}
+
+.modal {
+  font-size: 15px;
+
+  h3 {
+    color: $bottega-green;
   }
 }
