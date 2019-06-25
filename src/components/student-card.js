@@ -52,6 +52,7 @@ const StudentCard = props => {
         <span className="middle">Outcome Based</span>
         <span className="right">Proactive</span>
       </div>
+
       <div className="skills">{renderSkills()}</div>
 
       {Cookie.get("username") ? (

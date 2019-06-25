@@ -5,6 +5,7 @@ import { A, navigate } from "hookrouter";
 import Loader from "react-loader-spinner";
 
 import StudentCard from "./student-card";
+import Titles from "./titles";
 
 const Home = () => {
   const [studentInfo, setStudentInfo] = useState([]);
@@ -100,6 +101,7 @@ const Home = () => {
           </button>
         </div>
       ) : null}
+      <Titles />
       {loading ? <Loader type="Plane" color="#00cb78" /> : renderStudents()}
     </div>
   );
