@@ -4,7 +4,7 @@ const Titles = () => {
   return (
     <div className="titles">
       <div className="main-title">
-        <h1>Bottega</h1>
+        <img src="/assets/bottega-descriptive-logo.jpg" />
       </div>
       <div>
         <h3>Production ready engineers, Certified by:</h3>
