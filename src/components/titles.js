@@ -1,4 +1,5 @@
 import React from "react";
+import AccreditorBullet from "./accreditor-bullet";
 
 const Titles = () => {
   return (
@@ -8,13 +9,20 @@ const Titles = () => {
       </div>
       <div className="certification-list">
         <h3>Production ready engineers, Certified by:</h3>
-        <ul>
-          <li>The American Council on Education</li>
-          <li>NorthWest Accreditation Commission</li>
-          <li>AdvancEd</li>
-          <li>Distance Education Accrediting Commission</li>
-          <li>Department of Education Approved</li>
-        </ul>
+        <div>
+          <AccreditorBullet
+            title="The American Council on Education (ACE)"
+            logo="assets/ACE_logo.png"
+          />
+          <AccreditorBullet
+            title="AdvancEd / Northwest Accreditation Commission (NWAC)"
+            logo="/assets/AE_logo.jpg"
+          />
+          <AccreditorBullet
+            title="Distance Education Accrediting Commission (DEAC) - DOE Approved"
+            logo="/assets/DEAC_logo.png"
+          />
+        </div>
       </div>
     </div>
   );

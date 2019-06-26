@@ -5,10 +5,12 @@
   align-items: center;
 
   .certification-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     ul {
       list-style-type: circle;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
     }
 
     h3 {
@@ -17,12 +19,15 @@
   }
 }
 
-@media (max-width: 700px) {
-  .titles {
-    .certification-list {
-      ul {
-        display: block;
-      }
-    }
+.accreditor-bullet {
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: auto;
+    height: 25px;
+    margin-right: 10px;
   }
 }
