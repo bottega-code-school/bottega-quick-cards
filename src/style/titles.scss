@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.main-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ul {
+    list-style-type: circle;
+  }
+
+  .main-title {
+  }
 }
