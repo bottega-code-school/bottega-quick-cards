@@ -3,10 +3,10 @@ import React from "react";
 const Titles = () => {
   return (
     <div className="titles">
-      <div className="main-title">
+      <div>
         <img src="/assets/bottega-descriptive-logo.jpg" />
       </div>
-      <div>
+      <div className="certification-list">
         <h3>Production ready engineers, Certified by:</h3>
         <ul>
           <li>The American Council on Education</li>
