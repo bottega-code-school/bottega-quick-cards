@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { A, navigate } from "hookrouter";
 import DropzoneComponent from "react-dropzone-component";
 import request from "superagent";
 
-import "../../node_modules/react-dropzone-component/styles/filepicker.css";
-import "../../node_modules/dropzone/dist/min/dropzone.min.css";
+import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
+import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 const INITIAL_STATE = {
   name: "",

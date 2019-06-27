@@ -4,7 +4,7 @@ import Cookie from "js-cookie";
 import { A, navigate } from "hookrouter";
 import Loader from "react-loader-spinner";
 
-import StudentCard from "./student-card";
+import StudentCard from "./cards/student-card";
 import Titles from "./titles";
 
 const Home = () => {

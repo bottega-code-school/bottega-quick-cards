@@ -3,11 +3,11 @@ import { useRoutes, useRedirect } from "hookrouter";
 import Cookie from "js-cookie";
 
 import Home from "./home";
-import StudentForm from "./student-form";
-import Login from "./login";
+import StudentForm from "./forms/student-form";
+import Login from "./forms/login";
 
 import "../style/app.scss";
-import SingleStudent from "./single-student";
+import SingleStudent from "./cards/single-student";
 
 const routes = {
   "/": () => <Home />,
