@@ -29,12 +29,12 @@ const Rubric = props => {
             title="Proactive"
             description="Actively looks for difficult problems and tasks to complete"
           />
-          <img src="assets/chevron.png" />
+          <img src={props.pic} />
         </ol>
       ) : (
         <div className="collapsed-rubric">
           Rubric
-          <img src="assets/chevron.png" />
+          <img src={props.pic} />
         </div>
       )}
     </div>

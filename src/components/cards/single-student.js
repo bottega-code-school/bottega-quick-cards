@@ -3,6 +3,7 @@ import axios from "axios";
 import { A } from "hookrouter";
 
 import StudentCard from "./student-card";
+import Rubric from "../rubric/rubric";
 
 const SingleStudent = props => {
   const [student, setStudent] = React.useState([]);
@@ -57,6 +58,7 @@ const SingleStudent = props => {
   return (
     <div className="home">
       <A href="/">Home</A>
+      <Rubric pic="/assets/chevron.png" />
       <StudentCard key={student.id} student={student} skillArray={skillArray} />
     </div>
   );

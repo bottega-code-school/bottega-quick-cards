@@ -103,7 +103,7 @@ const Home = () => {
         </div>
       ) : null}
       <Titles />
-      <Rubric />
+      <Rubric pic="/assets/chevron.png" />
       <hr />
       {loading ? <Loader type="Plane" color="#00cb78" /> : renderStudents()}
     </div>
