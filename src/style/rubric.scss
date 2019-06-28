@@ -1,0 +1,19 @@
+.rubric {
+  @include default-form;
+  text-align: left;
+  width: 70%;
+
+  li {
+    margin-left: 20px;
+  }
+
+  .divider {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .rubric-item-title {
+    color: $bottega-green;
+    margin-left: 10px;
+  }
+}

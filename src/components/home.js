@@ -6,6 +6,7 @@ import Loader from "react-loader-spinner";
 
 import StudentCard from "./cards/student-card";
 import Titles from "./titles";
+import Rubric from "./rubric/rubric";
 
 const Home = () => {
   const [studentInfo, setStudentInfo] = useState([]);
@@ -102,6 +103,8 @@ const Home = () => {
         </div>
       ) : null}
       <Titles />
+      <Rubric />
+      <hr />
       {loading ? <Loader type="Plane" color="#00cb78" /> : renderStudents()}
     </div>
   );

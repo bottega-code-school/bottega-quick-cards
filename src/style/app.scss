@@ -24,6 +24,7 @@ $dark-gradient: #009154;
 @import "student-form";
 @import "login";
 @import "titles";
+@import "rubric";
 
 .home {
   display: flex;
@@ -84,4 +85,9 @@ input {
   h3 {
     color: $bottega-green;
   }
+}
+
+hr {
+  width: 90vw;
+  margin: 50px;
 }

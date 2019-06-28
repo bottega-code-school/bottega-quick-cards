@@ -48,9 +48,11 @@ const StudentCard = props => {
         />
       </div>
       <div className="skill-legend">
-        <span className="left">Supervised</span>
-        <span className="middle">Outcome Based</span>
-        <span className="right">Proactive</span>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
       </div>
 
       <div className="skills">{renderSkills()}</div>
