@@ -3,7 +3,7 @@ import RubricItem from "./rubric-item";
 
 const Rubric = () => {
   return (
-    <ol className="rubric">
+    <div className="rubric">
       <RubricItem
         title="Basic"
         description="Has a primary understanding of programming concepts and scructures"
@@ -24,7 +24,7 @@ const Rubric = () => {
         title="Proactive"
         description="Actively looks for difficult problems and tasks to complete"
       />
-    </ol>
+    </div>
   );
 };
 

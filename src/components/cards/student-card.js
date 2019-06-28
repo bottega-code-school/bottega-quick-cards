@@ -39,13 +39,6 @@ const StudentCard = props => {
       </div>
       <div className="scale-title">
         <span>Production Ready Scale</span>
-        <span className="question-mark" onClick={() => setModalIsOpen(true)}>
-          ?
-        </span>
-        <QuestionModal
-          modalIsOpen={modalIsOpen}
-          handleClose={() => setModalIsOpen(false)}
-        />
       </div>
       <div className="skill-legend">
         <span>1</span>

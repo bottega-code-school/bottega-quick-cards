@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookie from "js-cookie";
-import { A, navigate } from "hookrouter";
+import { A } from "hookrouter";
 import Loader from "react-loader-spinner";
 
 import StudentCard from "./cards/student-card";
