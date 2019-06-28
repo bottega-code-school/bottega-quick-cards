@@ -1,30 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+
 import RubricItem from "./rubric-item";
 
-const Rubric = () => {
+const Rubric = props => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <ol className="rubric">
-      <RubricItem
-        title="Basic"
-        description="Has a primary understanding of programming concepts and scructures"
-      />
-      <RubricItem
-        title="Operational"
-        description="Can perform basic tasks and solve real world problems"
-      />
-      <RubricItem
-        title="Supervised"
-        description="Functional in a work environment"
-      />
-      <RubricItem
-        title="Outcome Based"
-        description="Able to complete difficult tasks when assigned"
-      />
-      <RubricItem
-        title="Proactive"
-        description="Actively looks for difficult problems and tasks to complete"
-      />
-    </ol>
+    <div className="rubric" onClick={() => setExpanded(!expanded)}>
+      {expanded ? (
+        <ol>
+          <RubricItem
+            title="Basic"
+            description="Has a primary understanding of programming concepts and scructures"
+          />
+          <RubricItem
+            title="Operational"
+            description="Can perform basic tasks and solve real world problems"
+          />
+          <RubricItem
+            title="Supervised"
+            description="Functional in a work environment"
+          />
+          <RubricItem
+            title="Outcome Based"
+            description="Able to complete difficult tasks when assigned"
+          />
+          <RubricItem
+            title="Proactive"
+            description="Actively looks for difficult problems and tasks to complete"
+          />
+          <img src="assets/chevron.png" />
+        </ol>
+      ) : (
+        <div className="collapsed-rubric">
+          Rubric
+          <img src="assets/chevron.png" />
+        </div>
+      )}
+    </div>
   );
 };
 

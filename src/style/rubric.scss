@@ -5,11 +5,14 @@
   width: 70%;
   position: sticky;
   margin-top: 30px;
-  top: 10px;
+  padding: 0px;
+  top: 5px;
   z-index: 1;
+  cursor: pointer;
 
   li {
     margin-left: 20px;
+    padding: 10px;
   }
 
   .divider {
@@ -20,5 +23,24 @@
   .rubric-item-title {
     color: $bottega-green;
     margin-left: 10px;
+  }
+
+  .collapsed-rubric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  img {
+    height: 20px;
+    width: auto;
+    margin-right: 10px;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    transform: rotate(90deg);
+    animation: ease-in-out 0.3s;
   }
 }
