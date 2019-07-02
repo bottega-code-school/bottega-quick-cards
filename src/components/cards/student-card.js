@@ -37,18 +37,21 @@ const StudentCard = props => {
         </a>
         <p>{props.student.summary}</p>
       </div>
-      <div className="scale-title">
-        <span>Production Ready Scale</span>
-      </div>
-      <div className="skill-legend">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-      </div>
 
-      <div className="skills">{renderSkills()}</div>
+      <div className="skills">
+        <div className="scale-title">
+          <span>Production Ready Scale</span>
+        </div>
+        <div className="skill-legend">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+        </div>
+        <div />
+        {renderSkills()}
+      </div>
 
       {Cookie.get("username") ? (
         <div className="admin-control-buttons">

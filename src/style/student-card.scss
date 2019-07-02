@@ -63,7 +63,7 @@
   }
 
   .skill-legend {
-    grid-column: 1/-1;
+    grid-column: 1;
     background-image: linear-gradient(
       to right,
       $light-gradient,
@@ -73,8 +73,9 @@
     display: flex;
     justify-content: space-between;
     text-align: right;
-
+    margin-top: 3px;
     border-left: 1px solid $main-gray;
+    border-right: 1px solid $main-gray;
 
     span {
       width: 20%;

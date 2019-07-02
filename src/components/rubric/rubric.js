@@ -33,7 +33,7 @@ const Rubric = props => {
         </ol>
       ) : (
         <div className="collapsed-rubric">
-          Rubric
+          Production Ready Rubric
           <img src={props.pic} />
         </div>
       )}
