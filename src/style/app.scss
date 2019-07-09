@@ -26,6 +26,10 @@ $dark-gradient: #009154;
 @import "titles";
 @import "rubric";
 
+body {
+  margin: 0;
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -38,12 +42,17 @@ $dark-gradient: #009154;
     border-bottom: 1px solid $secondary-gray;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     img {
-      height: 50%;
       width: 158.14px;
-      padding: 10px;
+      height: auto;
+      padding-top: 6px;
       padding-left: 20px;
+    }
+
+    .home-button {
+      margin-right: 20px;
     }
   }
 }

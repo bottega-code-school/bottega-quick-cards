@@ -17,10 +17,12 @@ const Navbar = () => {
       <a href="https://bottega.tech" target="_blank">
         <img src="/assets/bottega-descriptive-logo.png" />
       </a>
+      <A href="/" className="home-button">
+        Home
+      </A>
 
       {loggedIn ? (
         <div className="admin-nav-buttons">
-          <A href="/">Home</A>
           <A href="/student-form">Form</A>
           <button onClick={handleLogout} className="logout-button">
             Logout
