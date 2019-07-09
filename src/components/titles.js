@@ -4,11 +4,8 @@ import AccreditorBullet from "./accreditor-bullet";
 const Titles = () => {
   return (
     <div className="titles">
-      <div>
-        <img src="/assets/bottega-descriptive-logo.png" />
-      </div>
       <div className="certification-list">
-        <h3>Production ready engineers, Certified by:</h3>
+        <h2>Production ready engineers, Certified by:</h2>
         <div>
           <AccreditorBullet
             title="The American Council on Education (ACE)"

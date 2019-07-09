@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Cookie from "js-cookie";
-import { A } from "hookrouter";
 import Loader from "react-loader-spinner";
 
 import StudentCard from "./cards/student-card";
 import Titles from "./titles";
 import Rubric from "./rubric/rubric";
+import Navbar from "./navbar";
 
 const Home = () => {
   const [studentInfo, setStudentInfo] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [loggedIn, setLoggedIn] = useState(Cookie.get("username"));
 
   useEffect(() => {
     const get = async () => {
@@ -86,22 +84,9 @@ const Home = () => {
     );
   };
 
-  const handleLogout = () => {
-    Cookie.remove("username");
-    Cookie.remove("password");
-    setLoggedIn(false);
-  };
-
   return (
     <div className="home">
-      {loggedIn ? (
-        <div className="admin-nav-buttons">
-          <A href="/student-form">Form</A>
-          <button onClick={handleLogout} className="logout-button">
-            Logout
-          </button>
-        </div>
-      ) : null}
+      <Navbar />
       <Titles />
       <Rubric pic="/assets/chevron.png" />
       <hr />

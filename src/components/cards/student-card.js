@@ -28,13 +28,7 @@ const StudentCard = props => {
     <div className="student-card-wrapper">
       <img src={props.student.image} alt="student" />
       <div>
-        <a
-          href={props.student.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {props.student.name}
-        </a>
+        <A href={`/student/${props.student.id}`}>{props.student.name}</A>
         <p>{props.student.summary}</p>
       </div>
 
@@ -63,7 +57,13 @@ const StudentCard = props => {
           </button>
         </div>
       ) : null}
-      <A href={`/student/${props.student.id}`}>...</A>
+      <a
+        href={props.student.linkedin}
+        target="_blank"
+        className="linkedin-link"
+      >
+        <img src="/assets/linkedin-2.png" />
+      </a>
     </div>
   );
 };
