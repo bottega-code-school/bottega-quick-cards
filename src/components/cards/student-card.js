@@ -28,7 +28,16 @@ const StudentCard = props => {
     <div className="student-card-wrapper">
       <img src={props.student.image} alt="student" />
       <div>
-        <A href={`/student/${props.student.id}`}>{props.student.name}</A>
+        <div className="naming-wrapper">
+          <A href={`/student/${props.student.id}`}>{props.student.name}</A>
+          <a
+            href={props.student.linkedin}
+            target="_blank"
+            className="linkedin-link"
+          >
+            <img src="/assets/linkedin-2.png" />
+          </a>
+        </div>
         <p>{props.student.summary}</p>
       </div>
 
@@ -57,13 +66,6 @@ const StudentCard = props => {
           </button>
         </div>
       ) : null}
-      <a
-        href={props.student.linkedin}
-        target="_blank"
-        className="linkedin-link"
-      >
-        <img src="/assets/linkedin-2.png" />
-      </a>
     </div>
   );
 };
