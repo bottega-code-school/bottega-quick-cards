@@ -9,7 +9,14 @@ const Skill = props => {
           width: `${100 - props.width * 20}%`
         }}
       />
-      <span className="skill">{props.skill}</span>
+      <span
+        className="skill"
+        style={{
+          width: `${props.width * 20 - 1}%`
+        }}
+      >
+        {props.skill}
+      </span>
     </div>
   );
 };
