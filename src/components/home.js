@@ -86,7 +86,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Navbar />
+      <Navbar onHomePage={true} />
       <Titles />
       <Rubric pic="/assets/chevron.png" />
       <hr />

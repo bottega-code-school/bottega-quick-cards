@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Cookie from "js-cookie";
 import { A } from "hookrouter";
 
-const Navbar = () => {
+const Navbar = props => {
   const [loggedIn, setLoggedIn] = useState(Cookie.get("username"));
 
   const handleLogout = () => {
@@ -17,9 +17,11 @@ const Navbar = () => {
       <a href="https://bottega.tech" target="_blank">
         <img src="/assets/bottega-descriptive-logo.png" />
       </a>
-      <A href="/" className="home-button">
-        Home
-      </A>
+      {props.onHomePage ? null : (
+        <A href="/" className="home-button">
+          Home
+        </A>
+      )}
 
       {loggedIn ? (
         <div className="admin-nav-buttons">
