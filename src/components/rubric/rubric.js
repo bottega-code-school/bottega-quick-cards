@@ -10,16 +10,16 @@ const Rubric = props => {
       {expanded ? (
         <ol>
           <RubricItem
-            title="Basic"
-            description="Has a primary understanding of programming concepts and scructures"
+            title="Student"
+            description="Basic Development Concepts"
           />
           <RubricItem
-            title="Operational"
-            description="Can perform basic tasks and solve real world problems"
+            title="Basic Developer"
+            description="Can perform basic tasks and coding logic"
           />
           <RubricItem
-            title="Supervised"
-            description="Functional in a work environment"
+            title="Certified Production Ready Engineer"
+            description="Can perform tasks independently or on a team with supervision"
           />
           <RubricItem
             title="Outcome Based"

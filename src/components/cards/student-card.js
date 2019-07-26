@@ -37,8 +37,17 @@ const StudentCard = props => {
           >
             <img src="/assets/linkedin-2.png" />
           </a>
+          <a
+            href={props.student.github}
+            target="_blank"
+            className="github-link"
+          >
+            <img src="/assets/GitHub-Mark-120px-plus.png" />
+          </a>
         </div>
-        <p>{props.student.summary}</p>
+        <div className="naming-wrapper">
+          <p>{props.student.summary}</p>
+        </div>
       </div>
 
       <div className="skills">

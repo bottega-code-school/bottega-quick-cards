@@ -9,6 +9,7 @@ import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
 const INITIAL_STATE = {
   name: "",
   linkedin: "",
+  github: "",
   image: "",
   summary: "",
   python_skill: "",
@@ -143,6 +144,13 @@ class StudentForm extends Component {
               name="linkedin"
               placeholder="LinkedIn Profile Link"
               value={this.state.linkedin}
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              name="github"
+              placeholder="Github Profile Link"
+              value={this.state.github}
               onChange={this.handleChange}
             />
           </div>
