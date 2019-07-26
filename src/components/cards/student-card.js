@@ -38,7 +38,7 @@ const StudentCard = props => {
             <img src="/assets/linkedin-2.png" />
           </a>
           <a
-            href={props.student.linkedin}
+            href={props.student.github}
             target="_blank"
             className="github-link"
           >
