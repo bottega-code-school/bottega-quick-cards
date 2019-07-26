@@ -33,7 +33,8 @@ const INITIAL_STATE = {
   oop: "",
   functional_programming: "",
   software_engineering: "",
-  apis: ""
+  apis: "",
+  hired: false
 };
 
 class StudentForm extends Component {
@@ -266,7 +267,6 @@ class StudentForm extends Component {
               value={this.state.control_structures}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="algorithms"
@@ -274,7 +274,6 @@ class StudentForm extends Component {
               value={this.state.algorithms}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="quality"
@@ -282,7 +281,6 @@ class StudentForm extends Component {
               value={this.state.quality}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="project_management"
@@ -290,7 +288,6 @@ class StudentForm extends Component {
               value={this.state.project_management}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="problem_solving"
@@ -298,7 +295,6 @@ class StudentForm extends Component {
               value={this.state.problem_solving}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="agile"
@@ -306,7 +302,6 @@ class StudentForm extends Component {
               value={this.state.agile}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="oop"
@@ -314,7 +309,6 @@ class StudentForm extends Component {
               value={this.state.oop}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="functional_programming"
@@ -322,7 +316,6 @@ class StudentForm extends Component {
               value={this.state.functional_programming}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="software_engineering"
@@ -330,7 +323,6 @@ class StudentForm extends Component {
               value={this.state.software_engineering}
               onChange={this.handleChange}
             />
-
             <input
               type="text"
               name="apis"
@@ -338,6 +330,16 @@ class StudentForm extends Component {
               value={this.state.apis}
               onChange={this.handleChange}
             />
+
+            <div>
+              hired?
+              <input
+                type="checkbox"
+                name="hired"
+                checked={this.state.hired}
+                onChange={() => this.setState({ hired: !this.state.hired })}
+              />
+            </div>
           </div>
 
           <button type="submit">Submit</button>

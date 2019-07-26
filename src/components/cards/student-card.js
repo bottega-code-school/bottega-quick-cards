@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Cookie from "js-cookie";
 import { navigate, A } from "hookrouter";
 
 import Skill from "./skill";
-import QuestionModal from "./question-modal";
 
 const StudentCard = props => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
   const renderSkills = () => {
     return props.skillArray.map(skill => {
       return (

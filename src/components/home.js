@@ -60,15 +60,16 @@ const Home = () => {
         },
         { skillName: "APIs", skillLevel: student.apis }
       ];
-
-      return (
-        <StudentCard
-          key={student.id}
-          student={student}
-          skillArray={skillArray}
-          handleDeleteStudent={handleDeleteStudent}
-        />
-      );
+      if (!student.hired) {
+        return (
+          <StudentCard
+            key={student.id}
+            student={student}
+            skillArray={skillArray}
+            handleDeleteStudent={handleDeleteStudent}
+          />
+        );
+      }
     });
   };
 
