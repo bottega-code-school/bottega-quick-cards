@@ -33,20 +33,21 @@
     align-items: center;
     margin-bottom: -10px;
 
-    .linkedin-link {
+    .linkedin-link,
+    .github-link {
       img {
         margin-left: 20px;
         height: 50px;
         width: auto;
       }
     }
-      .github-link {
-        img {
-          margin-left: 20px;
-          height: 46px;
-          width: auto;
-        }
+
+    .github-link {
+      img {
+        height: 44px;
+        margin-left: 10px;
       }
+    }
   }
 
   img {
