@@ -16,7 +16,20 @@ const Home = () => {
       const result = await axios(
         "https://quick-cards-api.herokuapp.com/students"
       );
-      setStudentInfo(result.data);
+
+      const sumSkills = student => {
+        let sum = 0;
+        Object.values(student).forEach(value => {
+          return isNaN(value) ? null : (sum += Number(value));
+        });
+        return sum - student.id;
+      };
+
+      setStudentInfo(
+        result.data.sort((a, b) => {
+          return sumSkills(b) - sumSkills(a);
+        })
+      );
       setLoading(false);
     };
     get();
@@ -60,6 +73,7 @@ const Home = () => {
         },
         { skillName: "APIs", skillLevel: student.apis }
       ];
+
       if (!student.hired) {
         return (
           <StudentCard
