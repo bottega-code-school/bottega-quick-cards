@@ -154,16 +154,23 @@ class StudentForm extends Component {
               value={this.state.github}
               onChange={this.handleChange}
             />
+            <input
+              type="text"
+              name="image"
+              placeholder="Image Link"
+              value={this.state.image}
+              onChange={this.handleChange}
+            />
           </div>
 
-          <DropzoneComponent
+          {/* <DropzoneComponent
             ref={this.imageRef}
             config={this.componentConfig()}
             djsConfig={this.djsConfig()}
             eventHandlers={this.handleImageDrop()}
           >
             <div>Student Image</div>
-          </DropzoneComponent>
+          </DropzoneComponent> */}
 
           <textarea
             rows="12"

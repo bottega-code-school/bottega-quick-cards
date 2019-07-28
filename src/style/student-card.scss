@@ -31,22 +31,21 @@
   .naming-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: -10px;
 
     .linkedin-link,
     .github-link {
+      margin-left: 20px;
+      height: 45px;
+      width: auto;
+
       img {
-        margin-left: 20px;
-        height: 50px;
+        height: 100%;
         width: auto;
       }
     }
 
     .github-link {
-      img {
-        height: 44px;
-        margin-left: 10px;
-      }
+      margin-left: 10px;
     }
   }
 
