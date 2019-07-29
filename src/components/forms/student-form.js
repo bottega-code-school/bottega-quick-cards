@@ -43,7 +43,7 @@ class StudentForm extends Component {
 
     this.state = INITIAL_STATE;
 
-    this.imageRef = React.createRef();
+    // this.imageRef = React.createRef();
   }
 
   componentDidMount() {
@@ -54,40 +54,40 @@ class StudentForm extends Component {
     }
   }
 
-  componentConfig = () => {
-    return {
-      iconFiletypes: [".jpg", ".png"],
-      showFiletypeIcon: true,
-      postUrl: "https://httpbin.org/post"
-    };
-  };
+  // componentConfig = () => {
+  //   return {
+  //     iconFiletypes: [".jpg", ".png"],
+  //     showFiletypeIcon: true,
+  //     postUrl: "https://httpbin.org/post"
+  //   };
+  // };
 
-  djsConfig = () => {
-    return {
-      addRemoveLinks: true,
-      maxFiles: 1
-    };
-  };
+  // djsConfig = () => {
+  //   return {
+  //     addRemoveLinks: true,
+  //     maxFiles: 1
+  //   };
+  // };
 
-  handleImageDrop = () => {
-    return {
-      addedfile: file => {
-        let upload = request
-          .post("https://api.cloudinary.com/v1_1/dkwmzcfls/image/upload")
-          .field("upload_preset", "student-images")
-          .field("file", file);
+  // handleImageDrop = () => {
+  //   return {
+  //     addedfile: file => {
+  //       let upload = request
+  //         .post("https://api.cloudinary.com/v1_1/dkwmzcfls/image/upload")
+  //         .field("upload_preset", "student-images")
+  //         .field("file", file);
 
-        upload.end((err, response) => {
-          if (err) {
-            console.log("error uploading to Cloudinary", file);
-          }
-          if (response.body.secure_url !== "") {
-            this.setState({ image: response.body.secure_url });
-          }
-        });
-      }
-    };
-  };
+  //       upload.end((err, response) => {
+  //         if (err) {
+  //           console.log("error uploading to Cloudinary", file);
+  //         }
+  //         if (response.body.secure_url !== "") {
+  //           this.setState({ image: response.body.secure_url });
+  //         }
+  //       });
+  //     }
+  //   };
+  // };
 
   handleChange = event => {
     this.setState({
@@ -106,7 +106,7 @@ class StudentForm extends Component {
         },
         body: JSON.stringify(this.state)
       })
-        .then(this.imageRef.current.dropzone.removeAllFiles())
+        // .then(this.imageRef.current.dropzone.removeAllFiles())
         .then(navigate("/"))
         .catch(error => console.log("put error", error));
     } else {
@@ -120,7 +120,7 @@ class StudentForm extends Component {
       })
         .then(result => result.json())
         .then(this.setState(INITIAL_STATE))
-        .then(this.imageRef.current.dropzone.removeAllFiles())
+        // .then(this.imageRef.current.dropzone.removeAllFiles())
         .catch(error => console.log("form submit", error));
     }
   };
