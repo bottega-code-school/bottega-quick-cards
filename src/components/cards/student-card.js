@@ -26,7 +26,9 @@ const StudentCard = props => {
       <img src={props.student.image} alt="student" />
       <div>
         <div className="naming-wrapper">
-          <A href={`/student/${props.student.id}`}>{props.student.name}</A>
+          <div className="name-titles">
+            <A href={`/student/${props.student.id}`}>{props.student.name}</A>
+          </div>
           <a
             href={props.student.linkedin}
             target="_blank"

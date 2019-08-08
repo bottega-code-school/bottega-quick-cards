@@ -34,7 +34,8 @@ const INITIAL_STATE = {
   functional_programming: "",
   software_engineering: "",
   apis: "",
-  hired: false
+  hired: false,
+  cirr_position: ""
 };
 
 class StudentForm extends Component {
@@ -126,6 +127,7 @@ class StudentForm extends Component {
   };
 
   render() {
+    console.log(this.state.cirr_position);
     return (
       <div className="student-form-wrapper">
         <A href="/">Home</A>
@@ -140,6 +142,43 @@ class StudentForm extends Component {
               value={this.state.name}
               onChange={this.handleChange}
             />
+
+            <select name="cirr_position" onChange={this.handleChange}>
+              <option value="">Select CIRR position</option>
+              <option value="Web Developer">Web Developer</option>
+              <option value="Software Engineer">Software Engineer</option>
+              <option value="Full-Stack Engineer">Full-Stack Engineer</option>
+              <option value="Solutions Engineer">Solutions Engineer</option>
+              <option value="Solutions Consultant">Solutions Consultant</option>
+              <option value="Developer">Developer</option>
+              <option value="Project Manager">Project Manager</option>
+              <option value="QA/Tester ">QA/Tester </option>
+              <option value="Jr Software Developer">
+                Jr Software Developer
+              </option>
+              <option value="UX UI Product Designer">
+                UX UI Product Designer
+              </option>
+              <option value="Actuarial Analyst">Actuarial Analyst</option>
+              <option value="Director of Digital Design">
+                Director of Digital Design
+              </option>
+              <option value="Entry Level Release Engineer">
+                Entry Level Release Engineer
+              </option>
+              <option value="Prep Experience Coordinator">
+                Prep Experience Coordinator
+              </option>
+              <option value="Junior Automation Engineer">
+                Junior Automation Engineer
+              </option>
+              <option value="Analyst">Analyst</option>
+              <option value="UX/UI Designer">UX/UI Designer</option>
+              <option value="Data Analyst">Data Analyst</option>
+              <option value="Back-End Developer">Back-End Developer</option>
+              <option value="Database Architect">Database Architect</option>
+            </select>
+
             <input
               type="text"
               name="linkedin"

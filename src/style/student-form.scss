@@ -16,6 +16,19 @@
       }
     }
 
+    select {
+      width: 80%;
+      margin-bottom: 10px;
+      border: 1px solid $main-gray;
+      outline: none;
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 14px;
+
+      &:focus {
+        border: 1px solid $bottega-green;
+      }
+    }
+
     textarea {
       border-radius: 30px;
       padding: 20px;
