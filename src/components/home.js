@@ -37,49 +37,47 @@ const Home = () => {
 
   const renderStudents = () => {
     return studentInfo.map(student => {
-      const skillArray = [
-        { skillName: "Python", skillLevel: student.python_skill },
-        { skillName: "React", skillLevel: student.react_skill },
-        { skillName: "Github", skillLevel: student.github_skill },
-        { skillName: "JSON", skillLevel: student.json_skill },
-        { skillName: "CSS & Scss", skillLevel: student.css_scss_skill },
-        { skillName: "Data Types", skillLevel: student.data_type_skill },
-        { skillName: "SQL", skillLevel: student.sql_skill },
-        { skillName: "JavaScript", skillLevel: student.javascript_skill },
-        { skillName: "HTML", skillLevel: student.html_skill },
-        { skillName: "UML", skillLevel: student.uml_skill },
-        { skillName: "UI/UX", skillLevel: student.ui_ux_skill },
-
-        {
-          skillName: "Control Structures",
-          skillLevel: student.control_structures
-        },
-        { skillName: "Algorithms", skillLevel: student.algorithms },
-        { skillName: "Quality", skillLevel: student.quality },
-        {
-          skillName: "Project Management",
-          skillLevel: student.project_management
-        },
-        { skillName: "Problem Solving", skillLevel: student.problem_solving },
-        { skillName: "Agile", skillLevel: student.agile },
-        { skillName: "OOP", skillLevel: student.oop },
-        {
-          skillName: "Functional Programming",
-          skillLevel: student.functional_programming
-        },
-        {
-          skillName: "Software Engineering",
-          skillLevel: student.software_engineering
-        },
-        { skillName: "APIs", skillLevel: student.apis }
-      ];
+      const createSkillArray = () => {
+        const nameArray = [
+          "Agile",
+          "Algorithms",
+          "APIs",
+          "Control Structures",
+          "CSS & SCSS",
+          "Data Types",
+          "Functional Programming",
+          "Github",
+          "HTML",
+          "JavaScript",
+          "JSON",
+          "OOP",
+          "Problem Solving",
+          "Project Management",
+          "Python",
+          "Quality",
+          "React",
+          "Software Engineering",
+          "SQL",
+          "UI/UX",
+          "UML"
+        ];
+        const skillArray = [];
+        Object.values(student).forEach(val => {
+          if (!isNaN(val) && val !== Boolean(val) && val !== student.id) {
+            skillArray.push(val);
+          }
+        });
+        return skillArray.map((skill, i) => {
+          return { skillName: nameArray[i], skillLevel: skill };
+        });
+      };
 
       if (!student.hired) {
         return (
           <StudentCard
             key={student.id}
             student={student}
-            skillArray={skillArray}
+            skillArray={createSkillArray()}
             handleDeleteStudent={handleDeleteStudent}
           />
         );
