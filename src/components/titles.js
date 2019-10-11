@@ -1,5 +1,5 @@
-import React from "react";
-import AccreditorBullet from "./accreditor-bullet";
+import React from "react"
+import AccreditorBullet from "./accreditor-bullet"
 
 const Titles = () => {
   return (
@@ -15,14 +15,10 @@ const Titles = () => {
             title="AdvancEd / Northwest Accreditation Commission (NWAC)"
             logo="/assets/AE_logo.jpg"
           />
-          <AccreditorBullet
-            title="Distance Education Accrediting Commission (DEAC) - DOE Approved"
-            logo="/assets/DEAC_logo.png"
-          />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Titles;
+export default Titles
