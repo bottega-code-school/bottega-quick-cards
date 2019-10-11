@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Cookie from "js-cookie"
 import { navigate, A } from "hookrouter"
 
@@ -6,14 +6,16 @@ import Skill from "./skill"
 
 const StudentCard = props => {
   const renderSkills = () => {
-    return props.skillArray.map(skill => {
-      return <Skill skill={skill.skill} width={skill.level} key={skill.name} />
+    return props.student.skills.map(s => {
+      return <Skill skill={s.skill} width={s.level} key={s.skill} />
     })
   }
 
   const handleEditStudent = id => {
     navigate(`/student-form/${id}`)
   }
+
+  useEffect(() => {}, [props.student])
 
   return (
     <div className="student-card-wrapper">

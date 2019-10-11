@@ -42,7 +42,6 @@ const Home = () => {
           <StudentCard
             key={student.id}
             student={student}
-            skillArray={student.skills}
             handleDeleteStudent={handleDeleteStudent}
           />
         )

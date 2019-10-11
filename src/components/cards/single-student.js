@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 
 import StudentCard from "./student-card"
@@ -6,28 +6,28 @@ import Rubric from "../rubric/rubric"
 import Navbar from "../navbar"
 
 const SingleStudent = props => {
-  const [student, setStudent] = React.useState([])
+  const [student, setStudent] = useState([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     const get = async () => {
       const result = await axios(
-        `https://quick-cards-api.herokuapp.com/student/${props.id}`
+        `https://quick-cards-api.herokuapp.com/students`
       )
-      setStudent(result.data)
+      setStudent(result.data.filter(s => s.id == props.id))
     }
     get()
   }, [])
+
+  const renderStudent = () => {
+    return student.map(s => <StudentCard student={s} />)
+  }
 
   return (
     <div className="home">
       <Navbar />
       <Rubric pic="/assets/chevron.png" />
       <div className="single-student-wrapper">
-        <StudentCard
-          key={student.id}
-          student={student}
-          skillArray={student.skills}
-        />
+        {renderStudent()}
         <div className="task-list-wrapper">
           <h3>Tasks you can ask me to do:</h3>
           <ul>
