@@ -1,43 +1,37 @@
-import React from "react";
-import Cookie from "js-cookie";
-import { navigate, A } from "hookrouter";
+import React from "react"
+import Cookie from "js-cookie"
+import { navigate, A } from "hookrouter"
 
-import Skill from "./skill";
+import Skill from "./skill"
 
 const StudentCard = props => {
   const renderSkills = () => {
     return props.skillArray.map(skill => {
-      return (
-        <Skill
-          skill={skill.skillName}
-          width={skill.skillLevel}
-          key={skill.skillName}
-        />
-      );
-    });
-  };
+      return <Skill skill={skill.skill} width={skill.level} key={skill.name} />
+    })
+  }
 
   const handleEditStudent = id => {
-    navigate(`/student-form/${id}`);
-  };
+    navigate(`/student-form/${id}`)
+  }
 
   return (
     <div className="student-card-wrapper">
-      <img src={props.student.image} alt="student" />
+      <img src={props.student.image_url} alt="student" />
       <div>
         <div className="naming-wrapper">
           <div className="name-titles">
             <A href={`/student/${props.student.id}`}>{props.student.name}</A>
           </div>
           <a
-            href={props.student.linkedin}
+            href={props.student.linkedin_url}
             target="_blank"
             className="linkedin-link"
           >
             <img src="/assets/linkedin.png" />
           </a>
           <a
-            href={props.student.github}
+            href={props.student.github_url}
             target="_blank"
             className="github-link"
           >
@@ -75,7 +69,7 @@ const StudentCard = props => {
         </div>
       ) : null}
     </div>
-  );
-};
+  )
+}
 
-export default StudentCard;
+export default StudentCard
