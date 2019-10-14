@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import { A, navigate } from "hookrouter";
-import DropzoneComponent from "react-dropzone-component";
-import request from "superagent";
+import React, { Component } from "react"
+import { A, navigate } from "hookrouter"
+import DropzoneComponent from "react-dropzone-component"
+import request from "superagent"
 
-import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
-import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
+import "../../../node_modules/react-dropzone-component/styles/filepicker.css"
+import "../../../node_modules/dropzone/dist/min/dropzone.min.css"
 
 const INITIAL_STATE = {
   name: "",
-  linkedin: "",
-  github: "",
-  image: "",
+  linkedin_url: "",
+  github_url: "",
+  image_url: "",
   summary: "",
-  python_skill: "",
-  react_skill: "",
-  github_skill: "",
-  json_skill: "",
-  css_scss_skill: "",
-  data_type_skill: "",
-  sql_skill: "",
-  javascript_skill: "",
-  html_skill: "",
-  uml_skill: "",
-  ui_ux_skill: "",
+  python: "",
+  react: "",
+  github: "",
+  json: "",
+  css_scss: "",
+  data_type: "",
+  sql: "",
+  javascript: "",
+  html: "",
+  uml: "",
+  ui_ux: "",
 
   control_structures: "",
   algorithms: "",
@@ -35,14 +35,14 @@ const INITIAL_STATE = {
   software_engineering: "",
   apis: "",
   hired: false,
-  cirr_position: ""
-};
+  cirr_positions: ""
+}
 
 class StudentForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = INITIAL_STATE;
+    this.state = INITIAL_STATE
 
     // this.imageRef = React.createRef();
   }
@@ -51,7 +51,7 @@ class StudentForm extends Component {
     if (this.props.id && this.props.editMode) {
       fetch(`https://quick-cards-api.herokuapp.com/student/${this.props.id}`)
         .then(response => response.json())
-        .then(data => this.setState(data));
+        .then(data => this.setState(data))
     }
   }
 
@@ -93,11 +93,11 @@ class StudentForm extends Component {
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    });
-  };
+    })
+  }
 
   onSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
     if (this.props.editMode) {
       fetch(`https://quick-cards-api.herokuapp.com/student/${this.props.id}`, {
         method: "PUT",
@@ -105,29 +105,115 @@ class StudentForm extends Component {
           "Content-Type": "application/json",
           Accept: "application/json"
         },
-        body: JSON.stringify(this.state)
+        body: JSON.stringify({
+          cirr_positions: this.state.cirr_positions,
+          github_url: this.state.github_url,
+          hired: this.state.hired,
+          image_url: this.state.image_url,
+          linkedin_url: this.state.linkedin_url,
+          name: this.state.name,
+          summary: this.state.summary,
+          skills: [
+            { skill: "Python", level: this.state.python },
+            { skill: "React", level: this.state.react },
+            { skill: "HTML", level: this.state.html },
+            { skill: "CSS & Scss", level: this.state.css_scss },
+            { skill: "JavaScript", level: this.state.javascript },
+            { skill: "Github", level: this.state.github },
+            { skill: "APIs", level: this.state.apis },
+            { skill: "JSON", level: this.state.json },
+            { skill: "Data Types", level: this.state.data_type },
+            { skill: "OOP", level: this.state.oop },
+            {
+              skill: "Functional Programming",
+              level: this.state.functional_programming
+            },
+            { skill: "SQL", level: this.state.sql },
+            { skill: "UML", level: this.state.uml },
+            { skill: "UI/UX", level: this.state.ui_ux },
+            { skill: "Problem Solving", level: this.state.problem_solving },
+            {
+              skill: "Control Structures",
+              level: this.state.control_structures
+            },
+            { skill: "Algorithms", level: this.state.algorithms },
+            { skill: "Quality", level: this.state.quality },
+            {
+              skill: "Project Management",
+              level: this.state.project_management
+            },
+            { skill: "Agile", level: this.state.agile },
+            {
+              skill: "Software Engineering",
+              level: this.state.software_engineering
+            }
+          ]
+        })
       })
         // .then(this.imageRef.current.dropzone.removeAllFiles())
         .then(navigate("/"))
-        .catch(error => console.log("put error", error));
+        .catch(error => console.log("put error", error))
     } else {
-      fetch("https://quick-cards-api.herokuapp.com/add-student", {
+      fetch("https://quick-cards-api.herokuapp.com/student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json"
         },
-        body: JSON.stringify(this.state)
+        body: JSON.stringify({
+          cirr_positions: this.state.cirr_positions,
+          github_url: this.state.github_url,
+          hired: this.state.hired,
+          image_url: this.state.image_url,
+          linkedin_url: this.state.linkedin_url,
+          name: this.state.name,
+          summary: this.state.summary,
+          skills: [
+            { skill: "Python", level: this.state.python },
+            { skill: "React", level: this.state.react },
+            { skill: "HTML", level: this.state.html },
+            { skill: "CSS & Scss", level: this.state.css_scss },
+            { skill: "JavaScript", level: this.state.javascript },
+            { skill: "Github", level: this.state.github },
+            { skill: "APIs", level: this.state.apis },
+            { skill: "JSON", level: this.state.json },
+            { skill: "Data Types", level: this.state.data_type },
+            { skill: "OOP", level: this.state.oop },
+            {
+              skill: "Functional Programming",
+              level: this.state.functional_programming
+            },
+            { skill: "SQL", level: this.state.sql },
+            { skill: "UML", level: this.state.uml },
+            { skill: "UI/UX", level: this.state.ui_ux },
+            { skill: "Problem Solving", level: this.state.problem_solving },
+            {
+              skill: "Control Structures",
+              level: this.state.control_structures
+            },
+            { skill: "Algorithms", level: this.state.algorithms },
+            { skill: "Quality", level: this.state.quality },
+            {
+              skill: "Project Management",
+              level: this.state.project_management
+            },
+            { skill: "Agile", level: this.state.agile },
+            {
+              skill: "Software Engineering",
+              level: this.state.software_engineering
+            }
+          ]
+        })
       })
         .then(result => result.json())
         .then(this.setState(INITIAL_STATE))
         // .then(this.imageRef.current.dropzone.removeAllFiles())
-        .catch(error => console.log("form submit", error));
+        .catch(error => console.log("form submit", error))
     }
-  };
+  }
 
   render() {
-    console.log(this.state.cirr_position);
+    console.log(this.state.cirr_position)
     return (
       <div className="student-form-wrapper">
         <A href="/">Home</A>
@@ -143,7 +229,7 @@ class StudentForm extends Component {
               onChange={this.handleChange}
             />
 
-            <select name="cirr_position" onChange={this.handleChange}>
+            <select name="cirr_positions" onChange={this.handleChange}>
               <option value="">Select CIRR position</option>
               <option value="Web Developer">Web Developer</option>
               <option value="Software Engineer">Software Engineer</option>
@@ -181,23 +267,23 @@ class StudentForm extends Component {
 
             <input
               type="text"
-              name="linkedin"
+              name="linkedin_url"
               placeholder="LinkedIn Profile Link"
-              value={this.state.linkedin}
+              value={this.state.linkedin_url}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="github"
+              name="github_url"
               placeholder="Github Profile Link"
-              value={this.state.github}
+              value={this.state.github_url}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="image"
+              name="image_url"
               placeholder="Image Link"
-              value={this.state.image}
+              value={this.state.image_url}
               onChange={this.handleChange}
             />
           </div>
@@ -225,80 +311,80 @@ class StudentForm extends Component {
           <div className="skill-level-inputs">
             <input
               type="text"
-              name="python_skill"
+              name="python"
               placeholder="Python"
-              value={this.state.python_skill}
+              value={this.state.python}
               onChange={this.handleChange}
             />
 
             <input
               type="text"
-              name="react_skill"
+              name="react"
               placeholder="React"
-              value={this.state.react_skill}
+              value={this.state.react}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="github_skill"
+              name="github"
               placeholder="Github"
-              value={this.state.github_skill}
+              value={this.state.github}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="json_skill"
+              name="json"
               placeholder="JSON"
-              value={this.state.json_skill}
+              value={this.state.json}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="css_scss_skill"
+              name="css_scss"
               placeholder="CSS / Scss"
-              value={this.state.css_scss_skill}
+              value={this.state.css_scss}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="data_type_skill"
+              name="data_type"
               placeholder="Data Types"
-              value={this.state.data_type_skill}
+              value={this.state.data_type}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="sql_skill"
+              name="sql"
               placeholder="SQL"
-              value={this.state.sql_skill}
+              value={this.state.sql}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="javascript_skill"
+              name="javascript"
               placeholder="JavaScript"
-              value={this.state.javascript_skill}
+              value={this.state.javascript}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="html_skill"
+              name="html"
               placeholder="HTML"
-              value={this.state.html_skill}
+              value={this.state.html}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="uml_skill"
+              name="uml"
               placeholder="UML"
-              value={this.state.uml_skill}
+              value={this.state.uml}
               onChange={this.handleChange}
             />
             <input
               type="text"
-              name="ui_ux_skill"
+              name="ui_ux"
               placeholder="UI / UX"
-              value={this.state.ui_ux_skill}
+              value={this.state.ui_ux}
               onChange={this.handleChange}
             />
           </div>
@@ -391,8 +477,8 @@ class StudentForm extends Component {
           <button type="submit">Submit</button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default StudentForm;
+export default StudentForm
