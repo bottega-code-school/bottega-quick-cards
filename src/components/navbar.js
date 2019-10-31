@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import Cookie from "js-cookie";
-import { A } from "hookrouter";
+import Cookie from "js-cookie"
+import { A } from "hookrouter"
 
 const Navbar = props => {
-  const [loggedIn, setLoggedIn] = useState(Cookie.get("username"));
+  const [loggedIn, setLoggedIn] = useState(Cookie.get("username"))
 
   const handleLogout = () => {
-    Cookie.remove("username");
-    Cookie.remove("password");
-    setLoggedIn(false);
-  };
+    Cookie.remove("username")
+    Cookie.remove("password")
+    setLoggedIn(false)
+  }
 
   return (
     <div className="navbar">
@@ -32,7 +32,7 @@ const Navbar = props => {
         </div>
       ) : null}
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

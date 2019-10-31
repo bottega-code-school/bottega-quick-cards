@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import RubricItem from "./rubric-item";
+import RubricItem from "./rubric-item"
 
 const Rubric = props => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false)
 
   return (
     <div className="rubric" onClick={() => setExpanded(!expanded)}>
@@ -38,7 +38,7 @@ const Rubric = props => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Rubric;
+export default Rubric

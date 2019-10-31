@@ -1,5 +1,5 @@
-import React from "react";
-import ReactModal from "react-modal";
+import React from "react"
+import ReactModal from "react-modal"
 
 const QuestionModal = props => {
   return (
@@ -19,8 +19,8 @@ const QuestionModal = props => {
         </div>
       </div>
     </ReactModal>
-  );
-};
+  )
+}
 
 const customStyles = {
   content: {
@@ -33,6 +33,6 @@ const customStyles = {
     height: "300px",
     fontFamily: "Roboto Condensed, sans-serif"
   }
-};
+}
 
-export default QuestionModal;
+export default QuestionModal

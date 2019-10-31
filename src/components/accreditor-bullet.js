@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const AccreditorBullet = props => {
   return (
@@ -6,7 +6,7 @@ const AccreditorBullet = props => {
       <img src={props.logo} />
       <p>{props.title}</p>
     </div>
-  );
-};
+  )
+}
 
-export default AccreditorBullet;
+export default AccreditorBullet

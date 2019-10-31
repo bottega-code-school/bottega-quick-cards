@@ -1,71 +1,29 @@
-import React from "react";
-import axios from "axios";
-import { A } from "hookrouter";
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 
-import StudentCard from "./student-card";
-import Rubric from "../rubric/rubric";
-import Navbar from "../navbar";
+import StudentCard from "./student-card"
+import Rubric from "../rubric/rubric"
+import Navbar from "../navbar"
 
 const SingleStudent = props => {
-  const [student, setStudent] = React.useState([]);
+  const [student, setStudent] = useState()
 
-  React.useEffect(() => {
+  useEffect(() => {
     const get = async () => {
       const result = await axios(
         `https://quick-cards-api.herokuapp.com/student/${props.id}`
-      );
-      setStudent(result.data);
-    };
-    get();
-  }, []);
-
-  const skillArray = [
-    { skillName: "Python", skillLevel: student.python_skill },
-    { skillName: "React", skillLevel: student.react_skill },
-    { skillName: "Github", skillLevel: student.github_skill },
-    { skillName: "JSON", skillLevel: student.json_skill },
-    { skillName: "CSS & Scss", skillLevel: student.css_scss_skill },
-    { skillName: "Data Types", skillLevel: student.data_type_skill },
-    { skillName: "SQL", skillLevel: student.sql_skill },
-    { skillName: "JavaScript", skillLevel: student.javascript_skill },
-    { skillName: "HTML", skillLevel: student.html_skill },
-    { skillName: "UML", skillLevel: student.uml_skill },
-    { skillName: "UI/UX", skillLevel: student.ui_ux_skill },
-
-    {
-      skillName: "Control Structures",
-      skillLevel: student.control_structures
-    },
-    { skillName: "Algorithms", skillLevel: student.algorithms },
-    { skillName: "Quality", skillLevel: student.quality },
-    {
-      skillName: "Project Management",
-      skillLevel: student.project_management
-    },
-    { skillName: "Problem Solving", skillLevel: student.problem_solving },
-    { skillName: "Agile", skillLevel: student.agile },
-    { skillName: "OOP", skillLevel: student.oop },
-    {
-      skillName: "Functional Programming",
-      skillLevel: student.functional_programming
-    },
-    {
-      skillName: "Software Engineering",
-      skillLevel: student.software_engineering
-    },
-    { skillName: "APIs", skillLevel: student.apis }
-  ];
+      )
+      setStudent(result.data)
+    }
+    get()
+  }, [])
 
   return (
     <div className="home">
       <Navbar />
       <Rubric pic="/assets/chevron.png" />
       <div className="single-student-wrapper">
-        <StudentCard
-          key={student.id}
-          student={student}
-          skillArray={skillArray}
-        />
+        {student && <StudentCard student={student} />}
         <div className="task-list-wrapper">
           <h3>Tasks you can ask me to do:</h3>
           <ul>
@@ -98,7 +56,7 @@ const SingleStudent = props => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SingleStudent;
+export default SingleStudent

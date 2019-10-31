@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Skill = props => {
   return (
@@ -18,7 +18,7 @@ const Skill = props => {
         {props.skill}
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default Skill;
+export default Skill

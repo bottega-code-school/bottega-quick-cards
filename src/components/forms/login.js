@@ -1,23 +1,23 @@
-import React from "react";
-import { navigate } from "hookrouter";
-import Cookie from "js-cookie";
+import React from "react"
+import { navigate } from "hookrouter"
+import Cookie from "js-cookie"
 
 const Login = () => {
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [errorText, setErrorText] = React.useState("");
+  const [username, setUsername] = React.useState("")
+  const [password, setPassword] = React.useState("")
+  const [errorText, setErrorText] = React.useState("")
 
   const handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault()
     if (username === "admin" && password === "workingman") {
-      Cookie.set("username", username);
-      Cookie.set("password", password);
-      setErrorText("");
-      navigate("/student-form");
+      Cookie.set("username", username)
+      Cookie.set("password", password)
+      setErrorText("")
+      navigate("/student-form")
     } else {
-      setErrorText("Wrong Username or Password");
+      setErrorText("Wrong Username or Password")
     }
-  };
+  }
 
   return (
     <div className="login">
@@ -42,7 +42,7 @@ const Login = () => {
         <button type="submit">Submit</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

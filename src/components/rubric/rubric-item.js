@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const RubricItem = props => {
   return (
@@ -7,7 +7,7 @@ const RubricItem = props => {
       <span className="divider">-</span>
       <span>{props.description}</span>
     </li>
-  );
-};
+  )
+}
 
-export default RubricItem;
+export default RubricItem
