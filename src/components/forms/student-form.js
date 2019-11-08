@@ -51,7 +51,39 @@ class StudentForm extends Component {
     if (this.props.id && this.props.editMode) {
       fetch(`https://quick-cards-api.herokuapp.com/student/${this.props.id}`)
         .then(response => response.json())
-        .then(data => this.setState(data))
+        .then(data => {
+          this.setState({
+            name: data.name,
+            linkedin_url: data.linkedin_url,
+            github_url: data.github_url,
+            image_url: data.image_url,
+            summary: data.summary,
+            python: data.skills[0].level,
+            react: data.skills[1].level,
+            github: data.skills[5].level,
+            json: data.skills[7].level,
+            css_scss: data.skills[3].level,
+            data_type: data.skills[8].level,
+            sql: data.skills[11].level,
+            javascript: data.skills[4].level,
+            html: data.skills[2].level,
+            uml: data.skills[12].level,
+            ui_ux: data.skills[13].level,
+
+            control_structures: data.skills[15].level,
+            algorithms: data.skills[16].level,
+            quality: data.skills[17].level,
+            project_management: data.skills[18].level,
+            problem_solving: data.skills[14].level,
+            agile: data.skills[19].level,
+            oop: data.skills[9].level,
+            functional_programming: data.skills[10].level,
+            software_engineering: data.skills[20].level,
+            apis: data.skills[6].level,
+            hired: data.hired,
+            cirr_positions: data.cirr_positions
+          })
+        })
     }
   }
 
