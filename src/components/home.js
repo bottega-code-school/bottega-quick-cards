@@ -18,11 +18,12 @@ const Home = () => {
       )
 
       const sumSkills = student => {
+        console.log(student.skills)
         let sum = 0
-        Object.values(student).forEach(value => {
-          return isNaN(value) ? null : (sum += Number(value))
+        Object.values(student.skills).forEach(value => {
+          return (sum += Number(value.level))
         })
-        return sum - student.id
+        return sum
       }
 
       setStudentInfo(
